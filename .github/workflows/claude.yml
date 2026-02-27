@@ -1,0 +1,19 @@
+name: Call Claude Code
+
+on:
+  schedule:
+    - cron: '0 22 * * *'  # 6:00 AM UTC+8
+    - cron: '0 3 * * *'   # 11:00 AM UTC+8
+    - cron: '0 8 * * *'   # 4:00 PM UTC+8
+    - cron: '0 13 * * *'  # 9:00 PM UTC+8
+  workflow_dispatch:       # allow manual trigger
+
+jobs:
+  call:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: "hi"
+          claude_args: "--max-turns 1"
