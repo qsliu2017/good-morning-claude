@@ -2,11 +2,11 @@ name: Call Claude Code
 
 on:
   schedule:
-    - cron: '0 22 * * *'  # 6:00 AM UTC+8
-    - cron: '0 3 * * *'   # 11:00 AM UTC+8
-    - cron: '0 8 * * *'   # 4:00 PM UTC+8
-    - cron: '0 13 * * *'  # 9:00 PM UTC+8
-  workflow_dispatch:       # allow manual trigger
+    - cron: '0 23 * * *'  # 7:00 AM UTC+8
+    - cron: '0 4 * * *'   # 12:00 PM UTC+8
+    - cron: '0 9 * * *'   # 5:00 PM UTC+8
+    - cron: '0 14 * * *'  # 10:00 PM UTC+8
+  workflow_dispatch:      # allow manual trigger
 
 jobs:
   call:
@@ -19,4 +19,7 @@ jobs:
           # anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}          
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: "hi"
-          claude_args: "--max-turns 1"
+          claude_args: |
+            #--model claude-haiku-4-5-20251001 # use cheaper model to reduce usage
+            --max-turns 1
+            --system-prompt "Reply with one sentence only."
