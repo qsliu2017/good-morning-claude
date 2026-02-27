@@ -27,7 +27,9 @@ The easiest way is through Claude Code in your terminal:
 /install-github-app
 ```
 
-This sets up the GitHub App and walks you through adding `ANTHROPIC_API_KEY` as a repository secret. Follow the prompts — it takes about 2 minutes.
+This sets up the GitHub App and walks you through adding `CLAUDE_CODE_OAUTH_TOKEN` as a repository secret. Follow the prompts — it takes about 2 minutes.
+
+After setup, you can manual trigger a workflow in [Actions](../actions).
 
 Alternative ways: see [claude-code-action/docs/setup.md](https://github.com/anthropics/claude-code-action/blob/main/docs/setup.md).
 
